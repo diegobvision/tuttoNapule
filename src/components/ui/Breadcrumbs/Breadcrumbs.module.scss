@@ -1,0 +1,28 @@
+@use "variables" as *;
+
+.nav { width: 100%; }
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-2;
+  font-size: $fs-xsmall;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.link {
+  color: $text-secondary;
+  &:hover { color: $color-terracotta; }
+}
+
+.sep { color: $color-border-strong; }
+
+.current { color: $text-primary; font-weight: $fw-semibold; }

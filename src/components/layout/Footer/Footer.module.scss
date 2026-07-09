@@ -1,0 +1,106 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.footer {
+  margin-top: $space-9;
+  background: $color-espresso;
+  color: $text-on-dark;
+}
+
+.top {
+  @include container;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: $space-8;
+  padding-block: $space-8;
+
+  @include md-down {
+    grid-template-columns: 1fr;
+    gap: $space-7;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  align-items: flex-start;
+}
+
+.tagline {
+  color: rgba(#f8e9da, 0.72);
+  font-family: $font-serif;
+  font-size: $fs-lead;
+  line-height: $lh-normal;
+  max-width: 34ch;
+  em { color: $color-ochre-soft; font-style: italic; }
+}
+
+.social { display: flex; gap: $space-3; }
+
+.socialLink {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(#f8e9da, 0.25);
+  border-radius: $radius-pill;
+  color: $text-on-dark;
+  transition: border-color $dur $ease, color $dur $ease, background $dur $ease;
+  &:hover { border-color: $color-ochre; color: $color-ochre; background: rgba(#f8e9da, 0.05); }
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+
+  @include sm-down { grid-template-columns: repeat(2, 1fr); gap: $space-6 $space-4; }
+}
+
+.col ul { display: flex; flex-direction: column; gap: $space-2; }
+
+.colTitle {
+  @include label-caps;
+  color: $color-ochre;
+  margin-bottom: $space-4;
+}
+
+.link {
+  color: rgba(#f8e9da, 0.78);
+  font-size: $fs-small;
+  transition: color $dur $ease, padding-left $dur $ease;
+  &:hover { color: $text-on-dark; padding-left: 4px; }
+}
+
+.bottom {
+  border-top: 1px solid rgba(#f8e9da, 0.12);
+}
+
+.divider {
+  max-width: 200px;
+  margin: 0 auto;
+  padding-top: $space-5;
+  color: rgba(#f8e9da, 0.3);
+}
+
+.legal {
+  text-align: center;
+  color: rgba(#f8e9da, 0.7);
+  font-size: $fs-small;
+  padding-top: $space-4;
+}
+
+.built {
+  text-align: center;
+  color: rgba(#f8e9da, 0.45);
+  font-size: $fs-xsmall;
+  padding: $space-2 0 $space-6;
+}
+
+.legalLink {
+  color: rgba(#f8e9da, 0.6);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  &:hover { color: $color-ochre-soft; }
+}

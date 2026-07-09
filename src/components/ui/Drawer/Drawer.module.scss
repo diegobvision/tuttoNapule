@@ -1,0 +1,65 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: $z-drawer;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear $dur;
+}
+
+.open {
+  pointer-events: auto;
+  visibility: visible;
+  transition: visibility 0s;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: $bg-overlay;
+  opacity: 0;
+  transition: opacity $dur $ease;
+  .open & { opacity: 1; }
+}
+
+.panel {
+  position: absolute;
+  background: $bg-card;
+  box-shadow: $shadow-drawer;
+  display: flex;
+  flex-direction: column;
+  transition: transform $dur $ease-out;
+  outline: none;
+  will-change: transform;
+}
+
+.right,
+.left {
+  top: 0;
+  bottom: 0;
+  width: var(--drawer-w);
+  max-width: 100vw;
+}
+
+.right {
+  right: 0;
+  transform: translateX(100%);
+  .open & { transform: translateX(0); }
+}
+
+.left {
+  left: 0;
+  transform: translateX(-100%);
+  .open & { transform: translateX(0); }
+}
+
+.top {
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  .open & { transform: translateY(0); }
+}

@@ -1,0 +1,52 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.wrap {
+  @include container;
+  @include section-pad;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  justify-content: center;
+}
+
+.chip {
+  padding: 0.5em 1.1em;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  background: $color-parchment;
+  color: $text-primary;
+  font-size: $fs-small;
+  font-weight: $fw-medium;
+  cursor: pointer;
+  transition: all $dur $ease;
+  &:hover { border-color: $color-ochre; }
+}
+
+.chipActive {
+  background: $color-espresso;
+  color: $text-on-dark;
+  border-color: $color-espresso;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-5;
+
+  @include md-up { grid-template-columns: repeat(2, 1fr); }
+  @include lg-up { grid-template-columns: repeat(3, 1fr); }
+}
+
+.empty {
+  text-align: center;
+  color: $text-secondary;
+  font-size: $fs-lead;
+  padding: $space-8 0;
+}

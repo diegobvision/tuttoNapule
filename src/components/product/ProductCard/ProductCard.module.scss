@@ -1,0 +1,94 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.card {
+  @include card;
+  @include card-hover;
+  overflow: hidden;
+  height: 100%;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageWell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: $color-cream-2;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform $dur-slow $ease;
+  .card:hover & { transform: scale(1.05); }
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: $font-serif;
+  font-style: italic;
+  color: $color-border-strong;
+  font-size: $fs-lead;
+}
+
+.badges {
+  position: absolute;
+  top: $space-3;
+  left: $space-3;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.saleBadge,
+.soldBadge {
+  @include label-caps;
+  padding: 0.4em 0.7em;
+  border-radius: $radius-pill;
+}
+
+.saleBadge {
+  background: $color-terracotta;
+  color: $text-on-accent;
+}
+
+.soldBadge {
+  background: rgba(#2b1d12, 0.72);
+  color: $text-on-dark;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-4;
+  flex: 1;
+}
+
+.vendor {
+  @include label-caps;
+  color: $color-ochre;
+  font-size: 0.68rem;
+}
+
+.title {
+  font-family: $font-serif;
+  font-size: $fs-h3;
+  font-weight: $fw-medium;
+  line-height: $lh-snug;
+  color: $text-primary;
+  @include line-clamp(2);
+}
+
+.price {
+  margin-top: auto;
+  padding-top: $space-2;
+  font-size: $fs-body;
+}

@@ -1,0 +1,24 @@
+@use "variables" as *;
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.img {
+  width: auto;
+  object-fit: contain;
+  // The raster logos carry the logo's cream background (#f8e9da). The page
+  // ground ($color-cream) is set to the exact same value, so the logo card
+  // reads as seamless — no blend mode or transparency trickery needed.
+}
+
+.wordmark {
+  height: 54px;
+  @media (max-width: 640px) { height: 46px; }
+}
+
+.badge {
+  height: 96px;
+}

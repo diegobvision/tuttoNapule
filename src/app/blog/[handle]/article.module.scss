@@ -1,0 +1,88 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.article {
+  @include container-narrow;
+  padding-block: $space-6 $space-8;
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  align-items: center;
+  text-align: center;
+}
+
+.meta {
+  @include label-caps;
+  color: $color-ochre;
+}
+
+.title {
+  font-size: $fs-h1;
+  color: $text-primary;
+  max-width: 20ch;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  justify-content: center;
+}
+
+.tag {
+  font-size: $fs-xsmall;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $text-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  padding: 0.3em 0.8em;
+}
+
+.hero {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  background: $color-cream-2;
+}
+
+.heroImg { object-fit: cover; }
+
+.body {
+  margin-top: $space-3;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  margin-top: $space-4;
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $space-4;
+}
+
+.back {
+  @include label-caps;
+  color: $text-primary;
+  &:hover { color: $color-terracotta; }
+}
+
+.recs {
+  @include container;
+  @include section-pad;
+  border-top: 1px solid $color-border;
+}

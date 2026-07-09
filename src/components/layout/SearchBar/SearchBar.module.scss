@@ -1,0 +1,78 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.inner {
+  @include container;
+  padding-block: $space-5;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  border-bottom: 2px solid $color-espresso;
+  padding-bottom: $space-3;
+}
+
+.icon {
+  color: $color-ochre;
+  flex: none;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: $font-serif;
+  font-size: $fs-h3;
+  color: $text-primary;
+  padding: $space-2 0;
+  &::placeholder { color: $color-border-strong; }
+  &:focus { outline: none; }
+}
+
+.submit {
+  @include btn-primary;
+  flex: none;
+  @include sm-down { display: none; }
+}
+
+.close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: $text-primary;
+  cursor: pointer;
+  border-radius: $radius-pill;
+  &:hover { background: rgba(#2b1d12, 0.06); }
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-2;
+  margin-top: $space-4;
+}
+
+.suggestLabel {
+  @include label-caps;
+  color: $text-secondary;
+  margin-right: $space-2;
+}
+
+.chip {
+  padding: 0.4em 0.9em;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  background: $color-parchment;
+  color: $text-primary;
+  font-size: $fs-small;
+  cursor: pointer;
+  transition: border-color $dur $ease, background $dur $ease;
+  &:hover { border-color: $color-ochre; background: $color-cream; }
+}

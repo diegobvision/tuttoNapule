@@ -1,0 +1,47 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.wrap {
+  @include container-narrow;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: $space-4;
+  padding-block: $space-9;
+}
+
+.code {
+  font-family: $font-serif;
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: $fw-bold;
+  color: $color-ochre;
+  line-height: 1;
+}
+
+.title { font-size: $fs-h1; color: $text-primary; }
+
+.divider { max-width: 180px; }
+
+.text {
+  color: $text-secondary;
+  font-size: $fs-lead;
+  max-width: 46ch;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  margin-top: $space-3;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link {
+  @include label-caps;
+  color: $text-primary;
+  &:hover { color: $color-terracotta; }
+}

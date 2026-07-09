@@ -1,0 +1,90 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.card {
+  @include card;
+  @include card-hover;
+  overflow: hidden;
+  height: 100%;
+}
+
+.link { display: flex; flex-direction: column; height: 100%; }
+
+.imageWell {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: $color-cream-2;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform $dur-slow $ease;
+  .card:hover & { transform: scale(1.04); }
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: $font-serif;
+  font-style: italic;
+  color: $color-border-strong;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-5;
+  flex: 1;
+}
+
+.meta {
+  @include label-caps;
+  color: $color-ochre;
+  font-size: 0.68rem;
+  display: flex;
+  gap: $space-1;
+  flex-wrap: wrap;
+}
+
+.author { color: $text-secondary; }
+
+.title {
+  font-family: $font-serif;
+  font-size: $fs-h3;
+  font-weight: $fw-medium;
+  line-height: $lh-snug;
+  color: $text-primary;
+  @include line-clamp(2);
+}
+
+.excerpt {
+  color: $text-secondary;
+  font-size: $fs-small;
+  line-height: $lh-normal;
+  @include line-clamp(3);
+}
+
+.readMore {
+  margin-top: auto;
+  padding-top: $space-2;
+  @include label-caps;
+  color: $text-primary;
+  transition: color $dur $ease;
+  .card:hover & { color: $color-terracotta; }
+}
+
+/* Featured (first item spans wider, horizontal on desktop) */
+.featured {
+  @include md-up {
+    grid-column: 1 / -1;
+    .link { flex-direction: row; }
+    .imageWell { flex: 1.3; aspect-ratio: auto; min-height: 340px; }
+    .body { flex: 1; justify-content: center; padding: $space-7; }
+    .title { font-size: $fs-h2; }
+    .excerpt { font-size: $fs-body; -webkit-line-clamp: 4; line-clamp: 4; }
+  }
+}

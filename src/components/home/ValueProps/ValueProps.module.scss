@@ -1,0 +1,44 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.band {
+  background: $color-espresso;
+  color: $text-on-dark;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-5;
+  padding-block: $space-6;
+
+  @include sm-down {
+    grid-template-columns: 1fr;
+    gap: $space-5;
+    text-align: center;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  padding-left: $space-4;
+  border-left: 1px solid rgba(#f8e9da, 0.16);
+
+  @include sm-down { border-left: none; padding-left: 0; }
+}
+
+.title {
+  font-family: $font-serif;
+  font-size: $fs-h3;
+  font-weight: $fw-medium;
+  color: $color-ochre-soft;
+}
+
+.text {
+  font-size: $fs-small;
+  color: rgba(#f8e9da, 0.72);
+  line-height: $lh-normal;
+}

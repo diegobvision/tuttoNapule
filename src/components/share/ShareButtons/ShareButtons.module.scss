@@ -1,0 +1,47 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.label {
+  @include label-caps;
+  color: $text-secondary;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  position: relative;
+}
+
+.btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  background: $color-parchment;
+  color: $text-primary;
+  cursor: pointer;
+  transition: border-color $dur $ease, color $dur $ease, background $dur $ease, transform $dur-fast $ease;
+
+  &:hover {
+    border-color: $color-ochre;
+    color: $color-terracotta;
+    transform: translateY(-2px);
+  }
+}
+
+.copied {
+  font-size: $fs-xsmall;
+  color: $color-success;
+  font-weight: $fw-semibold;
+  white-space: nowrap;
+}

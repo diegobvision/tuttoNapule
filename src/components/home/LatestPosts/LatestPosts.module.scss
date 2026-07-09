@@ -1,0 +1,28 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.section {
+  @include section-pad;
+  background: $bg-band;
+}
+
+.inner { @include container; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-5;
+
+  @include md-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include lg-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.viewAllWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: $space-7;
+}

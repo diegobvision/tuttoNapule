@@ -1,0 +1,90 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.wrap {
+  @include container;
+  @include section-pad;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.empty {
+  text-align: center;
+  color: $text-secondary;
+  font-size: $fs-lead;
+  padding: $space-8 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $space-5;
+}
+
+.tile {
+  @include card;
+  @include card-hover;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+
+  &:hover .image { transform: scale(1.05); }
+  &:hover .cta { gap: $space-2; color: $color-terracotta; }
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  background: $color-cream-2;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.image { object-fit: cover; transition: transform $dur-slow $ease; }
+
+.fallback {
+  font-family: $font-serif;
+  font-size: 3rem;
+  color: $color-border-strong;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(#1a1008, 0.28) 0%, rgba(#1a1008, 0) 60%);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-5;
+  flex: 1;
+}
+
+.title {
+  font-family: $font-serif;
+  font-size: $fs-h3;
+  font-weight: $fw-medium;
+  color: $text-primary;
+}
+
+.desc {
+  color: $text-secondary;
+  font-size: $fs-small;
+  @include line-clamp(2);
+}
+
+.cta {
+  margin-top: auto;
+  padding-top: $space-2;
+  @include label-caps;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  color: $text-primary;
+  transition: gap $dur $ease, color $dur $ease;
+}

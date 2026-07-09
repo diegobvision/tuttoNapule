@@ -1,0 +1,30 @@
+@use "variables" as *;
+
+.price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: $space-2;
+  font-family: $font-sans;
+}
+
+.from {
+  font-size: $fs-xsmall;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: $tracking-label;
+}
+
+.current {
+  font-weight: $fw-semibold;
+  color: $text-primary;
+}
+
+.sale {
+  color: $color-sale;
+}
+
+.compare {
+  font-size: $fs-small;
+  color: $text-secondary;
+  text-decoration: line-through;
+}

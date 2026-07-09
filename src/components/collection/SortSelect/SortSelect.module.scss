@@ -1,0 +1,41 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.label {
+  @include label-caps;
+  color: $text-secondary;
+}
+
+.selectWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.select {
+  appearance: none;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  background: $color-parchment;
+  padding: 0.5em 2.2em 0.5em 1em;
+  font-size: $fs-small;
+  font-weight: $fw-medium;
+  color: $text-primary;
+  cursor: pointer;
+  transition: border-color $dur $ease;
+  &:hover { border-color: $color-ochre; }
+  &:focus-visible { @include focus-ring; }
+}
+
+.icon {
+  position: absolute;
+  right: 0.8em;
+  pointer-events: none;
+  color: $text-secondary;
+}

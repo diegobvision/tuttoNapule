@@ -1,0 +1,61 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.section {
+  @include section-pad;
+  background: $bg-page;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-8;
+  align-items: center;
+
+  @include md-down {
+    grid-template-columns: 1fr;
+    gap: $space-6;
+  }
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-md;
+}
+
+.image { object-fit: cover; }
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  @include label-caps;
+  color: $color-ochre;
+}
+
+.title {
+  font-size: $fs-h1;
+  color: $text-primary;
+  max-width: 16ch;
+}
+
+.divider {
+  max-width: 180px;
+  justify-content: flex-start;
+}
+
+.body {
+  color: $text-secondary;
+  font-size: $fs-lead;
+  line-height: $lh-normal;
+  max-width: 52ch;
+}

@@ -1,0 +1,85 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-4 $space-5;
+  border-bottom: 1px solid $color-border;
+}
+
+.brand {
+  font-family: $font-serif;
+  font-size: $fs-h3;
+  font-weight: $fw-semibold;
+  color: $text-primary;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: $text-primary;
+  cursor: pointer;
+  border-radius: $radius-pill;
+  &:hover { background: rgba(#2b1d12, 0.06); }
+}
+
+.searchTrigger {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin: $space-4 $space-5 0;
+  padding: $space-3 $space-4;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  background: $color-cream;
+  color: $text-secondary;
+  font-size: $fs-small;
+  cursor: pointer;
+  &:hover { border-color: $color-ochre; }
+}
+
+.scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: $space-5;
+}
+
+.primary { display: flex; flex-direction: column; }
+
+.primaryLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-3 0;
+  font-family: $font-serif;
+  font-size: $fs-h3;
+  color: $text-primary;
+  border-bottom: 1px solid $color-border;
+  transition: color $dur $ease;
+  &:hover { color: $color-terracotta; }
+}
+
+.divider { margin: $space-5 0; }
+
+.groupLabel {
+  @include label-caps;
+  color: $color-ochre;
+  margin-bottom: $space-3;
+}
+
+.categories { display: flex; flex-direction: column; gap: $space-1; }
+
+.categoryLink {
+  display: block;
+  padding: $space-2 0;
+  color: $text-secondary;
+  font-size: $fs-lead;
+  transition: color $dur $ease, padding-left $dur $ease;
+  &:hover { color: $text-primary; padding-left: $space-2; }
+}

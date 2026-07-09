@@ -1,0 +1,29 @@
+@use "variables" as *;
+
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+  width: 100%;
+  color: $color-ochre;
+}
+
+.rule {
+  height: 1px;
+  flex: 0 1 64px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.mark {
+  flex: none;
+  font-size: 0.9rem;
+  color: $color-ochre;
+}

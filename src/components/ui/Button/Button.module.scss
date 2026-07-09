@@ -1,0 +1,37 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.btn {
+  @include btn-base;
+}
+
+.lg {
+  padding: 1em 2em;
+  font-size: $fs-body;
+}
+
+.primary {
+  background: $accent;
+  color: $text-on-accent;
+  &:hover { background: $color-terracotta-2; box-shadow: $shadow-md; }
+}
+
+.secondary {
+  background: transparent;
+  color: $text-primary;
+  border-color: $color-border-strong;
+  &:hover { border-color: $text-primary; background: rgba(#2b1d12, 0.04); }
+}
+
+.ochre {
+  background: $color-ochre;
+  color: $color-espresso;
+  &:hover { background: $color-ochre-soft; box-shadow: $shadow-md; }
+}
+
+.ghost {
+  background: transparent;
+  color: $text-on-dark;
+  border-color: rgba(#f4ebd8, 0.4);
+  &:hover { border-color: $text-on-dark; background: rgba(#f4ebd8, 0.08); }
+}

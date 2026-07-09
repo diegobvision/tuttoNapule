@@ -1,0 +1,133 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  // Opaque cream so the raster logo's cream card stays seamless even as
+  // content scrolls beneath.
+  background: $color-cream;
+  border-bottom: 1px solid transparent;
+  transition: border-color $dur $ease, box-shadow $dur $ease, background $dur $ease;
+}
+
+.scrolled {
+  border-bottom-color: $color-border;
+  box-shadow: $shadow-sm;
+}
+
+.bar {
+  @include container;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+
+  @include md-down { height: 64px; }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  flex: 1;
+}
+
+.logo { flex: none; }
+
+/* Desktop nav */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+
+  @include lg-down { display: none; }
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  background: $color-parchment;
+  padding: 0.55em 1em;
+  color: $text-primary;
+  font-family: $font-sans;
+  font-weight: $fw-semibold;
+  font-size: $fs-small;
+  cursor: pointer;
+  transition: border-color $dur $ease, background $dur $ease, color $dur $ease;
+  &:hover { border-color: $color-ochre; color: $color-terracotta; }
+}
+
+.navLink {
+  position: relative;
+  font-family: $font-sans;
+  font-weight: $fw-medium;
+  font-size: $fs-small;
+  color: $text-primary;
+  padding: $space-1 0;
+  transition: color $dur $ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: $color-ochre;
+    transition: width $dur $ease;
+  }
+  &:hover { color: $color-terracotta; }
+  &:hover::after { width: 100%; }
+}
+
+/* Right actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.iconBtn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: $text-primary;
+  cursor: pointer;
+  border-radius: $radius-pill;
+  transition: background $dur $ease, color $dur $ease;
+  &:hover { background: rgba(#2b1d12, 0.06); color: $color-terracotta; }
+
+  &[data-mobile] {
+    @include lg-up { display: none; }
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: $radius-pill;
+  background: $color-terracotta;
+  color: $text-on-accent;
+  font-family: $font-sans;
+  font-size: 0.66rem;
+  font-weight: $fw-bold;
+  line-height: 1;
+}

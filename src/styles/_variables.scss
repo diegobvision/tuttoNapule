@@ -1,0 +1,134 @@
+// ─────────────────────────────────────────────────────────────
+// TuttoNapule — Design tokens
+// "Traditional Neapolitan with a modern accent."
+// Warm cream ground, espresso-brown ink, ochre + terracotta accents,
+// Bay-of-Naples sea blue as a cool secondary. Always use tokens, never raw hex.
+// ─────────────────────────────────────────────────────────────
+@use "sass:color";
+
+// --- Core palette ---------------------------------------------------------
+$color-cream:        #f8e9da; // page ground — sampled from the logo card (warm cream)
+$color-cream-2:      #f1e1c9; // slightly deeper cream for alternating bands
+$color-parchment:    #fdf6ec; // lightest — cards / raised surfaces
+$color-espresso:     #2b1d12; // primary ink — near-black warm brown (from logo script)
+$color-espresso-2:   #3d2b1c; // softer brown for secondary headings
+$color-ink-soft:     #6b5847; // muted brown — body copy on cream
+$color-ochre:        #c9822e; // ochre/gold accent (the logo dots)
+$color-ochre-soft:   #dda24f; // lighter ochre — hover
+$color-terracotta:   #b1451f; // terracotta / Vesuvian red — CTAs, sale badges
+$color-terracotta-2: #93361a; // darker terracotta — hover
+$color-sea:          #2f6f7e; // Bay-of-Naples teal-blue — cool secondary accent
+$color-sea-deep:     #234f5a; // deeper sea — hover
+$color-olive:        #6f7a3a; // muted olive — tertiary tag accents
+
+$color-white:        #ffffff;
+$color-border:       #e6d6bd; // hairline borders on cream
+$color-border-strong:#d2be9b; // stronger hairline / dividers
+$text-on-dark:       #f4ebd8; // cream text on espresso surfaces
+$text-on-accent:     #faf5ea; // text on terracotta / sea buttons
+
+// --- Semantic tokens (prefer these in components) -------------------------
+$bg-page:      $color-cream;
+$bg-band:      $color-cream-2;    // alternating section band
+$bg-card:      $color-parchment;  // product cards, raised panels
+$bg-dark:      $color-espresso;   // footer, dark bands, drawers
+$bg-overlay:   rgba(#2b1d12, 0.55); // scrim behind drawers/modals
+
+$text-primary:   $color-espresso;
+$text-secondary: $color-ink-soft;
+$text-inverse:   $text-on-dark;
+
+$brand:        $color-espresso;    // primary brand ink
+$accent:       $color-terracotta;  // primary action colour
+$accent-soft:  $color-ochre;       // secondary accent / highlights
+
+// --- State ---------------------------------------------------------------
+$color-success: #3f7d4e;
+$color-error:   #b1451f;
+$color-sale:    $color-terracotta;
+
+// --- Typography ----------------------------------------------------------
+// Display serif = Playfair Display; body sans = Inter (loaded via next/font).
+// The CSS variables are set on <html> by the font loader in layout.tsx.
+$font-serif: var(--font-serif), "Playfair Display", Georgia, "Times New Roman", serif;
+$font-sans:  var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+$fw-light:    300;
+$fw-regular:  400;
+$fw-medium:   500;
+$fw-semibold: 600;
+$fw-bold:     700;
+
+// Fluid type scale (clamp: min, preferred, max)
+$fs-hero:   clamp(2.6rem, 6vw, 4.6rem);
+$fs-h1:     clamp(2.1rem, 4.2vw, 3.2rem);
+$fs-h2:     clamp(1.7rem, 3vw, 2.4rem);
+$fs-h3:     clamp(1.3rem, 2vw, 1.6rem);
+$fs-lead:   clamp(1.05rem, 1.5vw, 1.25rem);
+$fs-body:   1rem;
+$fs-small:  0.875rem;
+$fs-xsmall: 0.78rem;
+
+$lh-tight:  1.12;
+$lh-snug:   1.3;
+$lh-normal: 1.6;
+
+// Tracking for the "engraved label" caps used across the brand
+$tracking-label: 0.18em;
+$tracking-wide:  0.28em;
+
+// --- Spacing scale (8px base) --------------------------------------------
+$space-1:  0.25rem;
+$space-2:  0.5rem;
+$space-3:  0.75rem;
+$space-4:  1rem;
+$space-5:  1.5rem;
+$space-6:  2rem;
+$space-7:  3rem;
+$space-8:  4rem;
+$space-9:  6rem;
+$space-10: 8rem;
+
+// --- Layout --------------------------------------------------------------
+$container-max: 1280px;
+$container-narrow: 820px; // article / legal text measure
+$header-height: 76px;
+$header-height-scrolled: 64px;
+
+// --- Radii ---------------------------------------------------------------
+$radius-sm: 3px;
+$radius-md: 6px;
+$radius-lg: 12px;
+$radius-pill: 999px;
+// The "arch" motif — a soft domed top echoing Neapolitan doorways / the logo circle.
+$radius-arch: 140px 140px $radius-md $radius-md;
+
+// --- Shadows -------------------------------------------------------------
+$shadow-sm:  0 1px 2px rgba(#2b1d12, 0.06);
+$shadow-md:  0 6px 20px rgba(#2b1d12, 0.10);
+$shadow-lg:  0 18px 48px rgba(#2b1d12, 0.16);
+$shadow-drawer: -8px 0 40px rgba(#2b1d12, 0.28);
+
+// --- Motion --------------------------------------------------------------
+$ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+$dur-fast: 160ms;
+$dur:      260ms;
+$dur-slow: 420ms;
+
+// --- Z-index scale -------------------------------------------------------
+$z-base:      1;
+$z-sticky:    100;
+$z-header:    200;
+$z-dropdown:  300;
+$z-overlay:   400;
+$z-drawer:    500;
+$z-modal:     600;
+$z-toast:     700;
+
+// --- Breakpoints (values consumed by mixins) -----------------------------
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
