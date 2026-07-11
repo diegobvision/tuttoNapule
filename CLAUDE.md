@@ -94,7 +94,8 @@ changes to add categories), `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_GTM_ID`.
   `api/cart`, plus `sitemap.ts`, `robots.ts`, `opengraph-image.tsx`,
   `not-found.tsx`. Route-level styles as co-located `*.module.scss`.
 - `src/components/`
-  - `layout/` — Header (server wrapper + `HeaderClient`), CategoriesSlideOver,
+  - `layout/` — Header (server wrapper + `HeaderClient`; nav collection links
+    show a hover preview panel with cover image + short description),
     MobileMenu, SearchBar, CartDrawer, Footer.
   - `home/` — Hero, ValueProps, FeaturedCategories, StoryStrip, LatestPosts.
   - `ui/` — Logo (SVG brand marks from `public/logo/`: `wordmark` = header

@@ -40,10 +40,10 @@ The token is **not** `NEXT_PUBLIC_` on purpose: cart mutations run through the
 ## Navigation & categories (env-driven)
 
 - The **top nav** shows only the handles in `NEXT_PUBLIC_NAV_COLLECTIONS`.
-- A **"Categorie" menu item opens a slide-over** listing *every* collection
-  (fetched live), so all 5–6 categories are reachable without crowding the nav.
-  See `src/components/layout/CategoriesSlideOver/`.
-- The **mobile menu** (left drawer) repeats the primary links + all categories.
+  Each collection link reveals a **hover preview panel** (cover image + short
+  description, pure CSS `:hover`/`:focus-within`) built in
+  `src/components/layout/Header/`.
+- The **mobile menu** (left drawer) lists the primary links + all categories.
 - Add/remove a handle in the env var and it appears — no code change needed.
 - Handles are the collection URL slugs (Search-engine-listing field in Admin),
   not titles.
@@ -111,7 +111,7 @@ the container in sync when you add/rename a tracked event.
 - `src/app/` — routes: home, `collections`, `collections/[handle]`,
   `products/[handle]`, `pages/[handle]`, `blog`, `blog/[handle]`, `search`,
   `api/cart`, `sitemap.ts`, `robots.ts`, `opengraph-image.tsx`, `not-found.tsx`.
-- `src/components/` — `layout/` (Header + CategoriesSlideOver, MobileMenu,
+- `src/components/` — `layout/` (Header with hover preview panels, MobileMenu,
   SearchBar, CartDrawer, Footer), `home/` (Hero, ValueProps, FeaturedCategories,
   StoryStrip, LatestPosts), `product/`, `collection/`, `blog/`, `share/`,
   `analytics/`, `seo/`, `ui/` (Drawer, Button, Logo, Ornament, Price,

@@ -38,44 +38,42 @@
 
 /* Desktop nav */
 .nav {
-  display: flex;
-  align-items: center;
-  gap: $space-5;
-
   @include lg-down { display: none; }
 }
 
-.navButton {
-  display: inline-flex;
+.navList {
+  display: flex;
   align-items: center;
-  gap: $space-2;
-  border: 1px solid $color-border;
-  border-radius: $radius-pill;
-  background: $color-parchment;
-  padding: 0.55em 1em;
-  color: $text-primary;
-  font-family: $font-sans;
-  font-weight: $fw-semibold;
-  font-size: $fs-small;
-  cursor: pointer;
-  transition: border-color $dur $ease, background $dur $ease, color $dur $ease;
-  &:hover { border-color: $color-ochre; color: $color-terracotta; }
+  gap: $space-5;
+}
+
+.navItem {
+  position: relative;
+
+  // Reveal the preview panel on hover or keyboard focus.
+  &:hover .panel,
+  &:focus-within .panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .navLink {
   position: relative;
+  display: inline-block;
   font-family: $font-sans;
   font-weight: $fw-medium;
   font-size: $fs-small;
   color: $text-primary;
-  padding: $space-1 0;
+  padding: $space-2 0;
   transition: color $dur $ease;
 
   &::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -3px;
+    bottom: 2px;
     width: 0;
     height: 2px;
     background: $color-ochre;
@@ -83,6 +81,62 @@
   }
   &:hover { color: $color-terracotta; }
   &:hover::after { width: 100%; }
+}
+
+/* Hover preview: collection cover + short description. The padding-top
+   bridges the gap to the link so the pointer can travel into the panel. */
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  padding-top: $space-3;
+  width: 264px;
+  z-index: $z-dropdown;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $dur $ease, transform $dur $ease, visibility $dur $ease;
+  pointer-events: none;
+
+  .navItem:hover &,
+  .navItem:focus-within & {
+    pointer-events: auto;
+  }
+}
+
+/* Force-closed after a nav click (see HeaderClient), even while the link
+   still holds :hover/:focus. Cleared when the pointer re-enters the item. */
+.panelSuppressed {
+  &,
+  .navItem:hover &,
+  .navItem:focus-within & {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.panelCard {
+  background: $bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+}
+
+.panelImage {
+  display: block;
+  width: 100%;
+  height: auto; // beat the width/height attributes so aspect-ratio applies
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+}
+
+.panelText {
+  padding: $space-3 $space-4 $space-4;
+  font-size: $fs-xsmall;
+  line-height: $lh-snug;
+  color: $text-secondary;
 }
 
 /* Right actions */

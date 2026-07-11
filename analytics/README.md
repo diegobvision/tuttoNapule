@@ -34,8 +34,7 @@ survives markup changes.
 | `view_item` | ProductDetail mount | GA4 ecommerce |
 | `view_item_list` | Collection / recommendations render | GA4 ecommerce |
 | `select_item` | Product card click in a list | GA4 ecommerce |
-| `nav_categories_open` | Header "Categorie" slide-over open | params |
-| `nav_collection_click` | Header / slide-over / mobile category click | params |
+| `nav_collection_click` | Header / mobile category click | params |
 | `nav_link_click` | Header "Journal" / mobile primary links | params |
 | `search_open` | Header search icon | params |
 | `search` | SearchBar submit | params |

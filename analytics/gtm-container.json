@@ -519,50 +519,6 @@
       {
         "accountId": "000000000",
         "containerId": "000000000",
-        "tagId": "210",
-        "name": "GA4 Event - nav_categories_open",
-        "type": "gaawe",
-        "parameter": [
-          {
-            "type": "template",
-            "key": "eventName",
-            "value": "nav_categories_open"
-          },
-          {
-            "type": "tagReference",
-            "key": "measurementId",
-            "value": "GA4 Configuration"
-          },
-          {
-            "type": "list",
-            "key": "eventParameters",
-            "list": [
-              {
-                "type": "map",
-                "map": [
-                  {
-                    "type": "template",
-                    "key": "name",
-                    "value": "location"
-                  },
-                  {
-                    "type": "template",
-                    "key": "value",
-                    "value": "{{DLV - location}}"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "firingTriggerId": [
-          "109"
-        ],
-        "tagFiringOption": "oncePerEvent"
-      },
-      {
-        "accountId": "000000000",
-        "containerId": "000000000",
         "tagId": "211",
         "name": "GA4 Event - nav_collection_click",
         "type": "gaawe",
@@ -1127,30 +1083,6 @@
                 "type": "template",
                 "key": "arg1",
                 "value": "select_item"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "accountId": "000000000",
-        "containerId": "000000000",
-        "triggerId": "109",
-        "name": "CE - nav_categories_open",
-        "type": "customEvent",
-        "customEventFilter": [
-          {
-            "type": "equals",
-            "parameter": [
-              {
-                "type": "template",
-                "key": "arg0",
-                "value": "{{_event}}"
-              },
-              {
-                "type": "template",
-                "key": "arg1",
-                "value": "nav_categories_open"
               }
             ]
           }

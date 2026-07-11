@@ -129,9 +129,6 @@ export const trackHeroCta = (label: string, destination: string) =>
 export const trackViewCollection = (handle: string, title: string) =>
   trackEvent("view_collection_click", { collection_handle: handle, collection_title: title });
 
-export const trackNavCategoriesOpen = (location: string) =>
-  trackEvent("nav_categories_open", { location });
-
 export const trackNavCollectionClick = (handle: string, location: string) =>
   trackEvent("nav_collection_click", { collection_handle: handle, location });
 
