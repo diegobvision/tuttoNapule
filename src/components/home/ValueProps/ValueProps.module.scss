@@ -25,7 +25,7 @@
   flex-direction: column;
   gap: $space-1;
   padding-left: $space-4;
-  border-left: 1px solid rgba(#f8e9da, 0.16);
+  border-left: 1px solid rgba($text-on-dark, 0.16);
 
   @include sm-down { border-left: none; padding-left: 0; }
 }
@@ -39,6 +39,6 @@
 
 .text {
   font-size: $fs-small;
-  color: rgba(#f8e9da, 0.72);
+  color: rgba($text-on-dark, 0.72);
   line-height: $lh-normal;
 }

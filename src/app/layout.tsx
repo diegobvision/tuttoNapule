@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Inter, Ephesis } from "next/font/google";
 import "@/styles/globals.scss";
 
 import { CartProvider } from "@/context/CartContext";
@@ -29,6 +29,14 @@ const sans = Inter({
   display: "swap",
 });
 
+// Brand script — used only for the "Tutto Napule" wordmark (header, footer).
+const script = Ephesis({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -53,14 +61,18 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: [{ url: "/logo-circle.png", type: "image/png" }],
-    apple: "/logo-circle.png",
+    icon: [
+      { url: "/logo/favicon.svg", type: "image/svg+xml" },
+      { url: "/logo/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/logo/apple-touch-icon.png",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en-GB" className={`${serif.variable} ${sans.variable} ${script.variable}`}>
       <head>
         <GoogleTagManagerScript />
         <link rel="preconnect" href="https://cdn.shopify.com" />

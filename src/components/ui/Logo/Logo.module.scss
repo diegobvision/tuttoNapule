@@ -9,16 +9,17 @@
 .img {
   width: auto;
   object-fit: contain;
-  // The raster logos carry the logo's cream background (#f8e9da). The page
-  // ground ($color-cream) is set to the exact same value, so the logo card
-  // reads as seamless — no blend mode or transparency trickery needed.
 }
 
+// Script typemark in the header — sized against the header bar.
 .wordmark {
-  height: 54px;
-  @media (max-width: 640px) { height: 46px; }
+  height: 50px;
+  @media (max-width: 640px) { height: 40px; }
 }
 
+// Full lockup in the footer (ivory-inked variant on espresso).
 .badge {
-  height: 96px;
+  width: 240px;
+  height: auto;
+  @media (max-width: 640px) { width: 200px; }
 }

@@ -1,15 +1,15 @@
 // ─────────────────────────────────────────────────────────────
 // TuttoNapule — Design tokens
-// "Traditional Neapolitan with a modern accent."
-// Warm cream ground, espresso-brown ink, ochre + terracotta accents,
+// "The premium Neapolitan gastronomia."
+// Warm ivory ground, espresso-brown ink, ochre + terracotta accents,
 // Bay-of-Naples sea blue as a cool secondary. Always use tokens, never raw hex.
 // ─────────────────────────────────────────────────────────────
 @use "sass:color";
 
 // --- Core palette ---------------------------------------------------------
-$color-cream:        #f8e9da; // page ground — sampled from the logo card (warm cream)
-$color-cream-2:      #f1e1c9; // slightly deeper cream for alternating bands
-$color-parchment:    #fdf6ec; // lightest — cards / raised surfaces
+$color-cream:        #f6f0e3; // page ground — warm ivory (calm paper, not peach)
+$color-cream-2:      #eee5cf; // slightly deeper ivory for alternating bands
+$color-parchment:    #fcf9f1; // lightest — cards / raised surfaces
 $color-espresso:     #2b1d12; // primary ink — near-black warm brown (from logo script)
 $color-espresso-2:   #3d2b1c; // softer brown for secondary headings
 $color-ink-soft:     #6b5847; // muted brown — body copy on cream
@@ -22,9 +22,9 @@ $color-sea-deep:     #234f5a; // deeper sea — hover
 $color-olive:        #6f7a3a; // muted olive — tertiary tag accents
 
 $color-white:        #ffffff;
-$color-border:       #e6d6bd; // hairline borders on cream
-$color-border-strong:#d2be9b; // stronger hairline / dividers
-$text-on-dark:       #f4ebd8; // cream text on espresso surfaces
+$color-border:       #e2d8c0; // hairline borders on ivory
+$color-border-strong:#cdbe9d; // stronger hairline / dividers
+$text-on-dark:       #f3edde; // ivory text on espresso surfaces
 $text-on-accent:     #faf5ea; // text on terracotta / sea buttons
 
 // --- Semantic tokens (prefer these in components) -------------------------
@@ -48,10 +48,12 @@ $color-error:   #b1451f;
 $color-sale:    $color-terracotta;
 
 // --- Typography ----------------------------------------------------------
-// Display serif = Playfair Display; body sans = Inter (loaded via next/font).
-// The CSS variables are set on <html> by the font loader in layout.tsx.
+// Display serif = Playfair Display; body sans = Inter; brand script = Ephesis
+// (loaded via next/font). The CSS variables are set on <html> in layout.tsx.
+// The script face is reserved for the "Tutto Napule" wordmark — never body copy.
 $font-serif: var(--font-serif), "Playfair Display", Georgia, "Times New Roman", serif;
 $font-sans:  var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-script: var(--font-script), "Ephesis", "Snell Roundhand", cursive;
 
 $fw-light:    300;
 $fw-regular:  400;
@@ -60,7 +62,7 @@ $fw-semibold: 600;
 $fw-bold:     700;
 
 // Fluid type scale (clamp: min, preferred, max)
-$fs-hero:   clamp(2.6rem, 6vw, 4.6rem);
+$fs-hero:   clamp(2.4rem, 4.5vw, 3.9rem);
 $fs-h1:     clamp(2.1rem, 4.2vw, 3.2rem);
 $fs-h2:     clamp(1.7rem, 3vw, 2.4rem);
 $fs-h3:     clamp(1.3rem, 2vw, 1.6rem);

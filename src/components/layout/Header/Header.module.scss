@@ -5,8 +5,7 @@
   position: sticky;
   top: 0;
   z-index: $z-header;
-  // Opaque cream so the raster logo's cream card stays seamless even as
-  // content scrolls beneath.
+  // Opaque so nav labels stay legible as content scrolls beneath.
   background: $color-cream;
   border-bottom: 1px solid transparent;
   transition: border-color $dur $ease, box-shadow $dur $ease, background $dur $ease;

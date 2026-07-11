@@ -4,8 +4,8 @@ A headless Shopify storefront for **Tutto Napule** — authentic Neapolitan &
 Italian food, coffee and kitchenware, delivered across the UK.
 
 Built with **Next.js (App Router) · TypeScript · SCSS Modules · Shopify
-Storefront API**. Traditional-with-a-modern-accent design in warm cream,
-espresso brown and ochre/terracotta.
+Storefront API**. "Premium Neapolitan gastronomia" design in warm ivory,
+espresso brown and ochre/terracotta, with an Ephesis script wordmark.
 
 ## Quick start
 
@@ -47,6 +47,8 @@ fallbacks so you can preview the design immediately. To wire up real data, see
 
 ## Documentation
 
+- **[CLAUDE.md](./CLAUDE.md)** — project context, brand identity, codebase map
+  and styling rules.
 - **[AGENTS.md](./AGENTS.md)** — architecture, revalidation policy, SEO, where
   things live, design system.
 - **[SHOPIFY_SETUP.md](./SHOPIFY_SETUP.md)** — how to get your Shopify API info

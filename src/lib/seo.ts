@@ -78,7 +78,7 @@ export function organizationSchema(): JsonLd {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: absoluteUrl("/logo-badge.png"),
+    logo: absoluteUrl("/logo/favicon-512.png"),
     description: SITE_DESCRIPTION,
   };
 }
@@ -198,7 +198,7 @@ export function articleSchema(article: Article): JsonLd {
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
-      logo: { "@type": "ImageObject", url: absoluteUrl("/logo-badge.png") },
+      logo: { "@type": "ImageObject", url: absoluteUrl("/logo/favicon-512.png") },
     },
     mainEntityOfPage: absoluteUrl(`/blog/${article.handle}`),
     keywords: article.tags.join(", "),

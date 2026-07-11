@@ -32,6 +32,6 @@
 .ghost {
   background: transparent;
   color: $text-on-dark;
-  border-color: rgba(#f4ebd8, 0.4);
-  &:hover { border-color: $text-on-dark; background: rgba(#f4ebd8, 0.08); }
+  border-color: rgba($text-on-dark, 0.4);
+  &:hover { border-color: $text-on-dark; background: rgba($text-on-dark, 0.08); }
 }

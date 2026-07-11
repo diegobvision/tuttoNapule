@@ -3,7 +3,12 @@
 
 .hero {
   position: relative;
-  min-height: min(88vh, 760px);
+  // Header + hero = exactly one viewport (small-viewport unit so mobile
+  // browser chrome doesn't cause overflow). Capped so the fold never balloons
+  // on very tall monitors.
+  height: calc(100svh - var(--header-h));
+  min-height: 520px;
+  max-height: 880px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -18,23 +23,25 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(#1a1008, 0.15) 0%, rgba(#1a1008, 0) 30%),
-    linear-gradient(0deg, rgba(#1a1008, 0.82) 0%, rgba(#1a1008, 0.35) 45%, rgba(#1a1008, 0) 75%);
+    linear-gradient(90deg, rgba(#1a1008, 0.38) 0%, rgba(#1a1008, 0.1) 48%, rgba(#1a1008, 0) 72%),
+    linear-gradient(0deg, rgba(#1a1008, 0.85) 0%, rgba(#1a1008, 0.4) 42%, rgba(#1a1008, 0) 74%);
 }
 
 .inner {
   @include container;
   position: relative;
   z-index: 1;
-  padding-bottom: $space-9;
-  padding-top: $space-9;
-  max-width: 760px;
+  padding-bottom: $space-8;
+  padding-top: $space-8;
+  max-width: 860px;
   display: flex;
   flex-direction: column;
   gap: $space-4;
   align-items: flex-start;
 }
 
+// Glass chip so the tagline reads over any part of the photo, at every
+// breakpoint — the bare ochre caps drowned in the sunset sky.
 .eyebrow {
   @include label-caps;
   display: inline-flex;
@@ -42,6 +49,12 @@
   gap: $space-2;
   letter-spacing: $tracking-wide;
   color: $color-ochre-soft;
+  background: rgba(#1a1008, 0.42);
+  border: 1px solid rgba($text-on-dark, 0.2);
+  border-radius: $radius-pill;
+  padding: 0.65em 1.15em;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .eyebrowMark { font-size: 0.8rem; }
@@ -57,7 +70,7 @@
   font-family: $font-serif;
   font-size: $fs-lead;
   font-style: italic;
-  color: rgba(#f8e9da, 0.9);
+  color: rgba($text-on-dark, 0.9);
   max-width: 48ch;
   line-height: $lh-snug;
 }

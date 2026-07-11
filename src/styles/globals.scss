@@ -16,6 +16,12 @@ html {
   scrollbar-gutter: stable;
 }
 
+// Actual header height, for viewport-fitting sections (hero, bento).
+:root {
+  --header-h: #{$header-height};
+  @include md-down { --header-h: 64px; }
+}
+
 body {
   background: $bg-page;
   color: $text-primary;

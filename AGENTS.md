@@ -2,9 +2,10 @@
 
 Headless Shopify storefront for **Tutto Napule**, an online shop for authentic
 Neapolitan & Italian food, coffee and kitchenware, shipping across the UK.
-Brand line: **"Cucina · Casa · Ricette"**. Traditional-with-a-modern-accent
-look — warm cream, espresso-brown ink, ochre + terracotta accents, Bay-of-Naples
-sea blue as a cool secondary.
+Brand line: **"Cucina · Casa · Ricette"**. "Premium Neapolitan gastronomia"
+look — warm ivory ground, espresso-brown ink, ochre + terracotta accents,
+Bay-of-Naples sea blue as a cool secondary, Ephesis script wordmark.
+Full brand rationale in **CLAUDE.md**.
 
 **Stack:** Next.js 15 (App Router), TypeScript, SCSS Modules (no Tailwind),
 Shopify Storefront API (GraphQL `2024-10`) via native `fetch`. SSG + time-based
@@ -124,21 +125,27 @@ the container in sync when you add/rename a tracked event.
   `utils.ts`.
 - `src/styles/` — `_variables.scss` (all tokens), `_mixins.scss`, `globals.scss`.
   `src/styles` is on the SCSS load path, so modules `@use "variables" as *;`.
-- `public/` — `logo-wordmark.png` (header), `logo-badge.png` (footer),
-  `logo-circle.png` (favicon), `images/` (hero + lifestyle fallbacks).
+- `public/` — `logo/` (brand SVGs: `typemark.svg` header, `full-inverse.svg`
+  footer, `emblem.svg` / `separator.svg` / `full.svg`, plus `favicon.svg` and
+  its PNG fallbacks: `favicon-32/192/512.png`, `apple-touch-icon.png`),
+  `images/` (hero + lifestyle fallbacks).
 
 ## Design system notes
 
 - **Always use tokens** from `_variables.scss`, never raw hex. Semantic tokens:
   `$bg-page`, `$bg-card`, `$bg-dark`, `$text-primary/secondary/inverse`,
   `$brand`, `$accent` (terracotta), `$accent-soft` (ochre).
-- Display serif **Playfair Display**, body **Inter** (loaded via `next/font`,
-  exposed as `--font-serif` / `--font-sans`).
+- Display serif **Playfair Display**, body **Inter**, brand script **Ephesis**
+  (loaded via `next/font`, exposed as `--font-serif` / `--font-sans` /
+  `--font-script`). The script face is reserved for the "Tutto Napule"
+  wordmark (`ui/Logo`) — never headings or body copy.
 - Recurring motifs: the `SectionDivider` ornament (hairline + ochre diamond /
   quatrefoil, from the logo) is the brand's `<hr>`; centred label compositions
   (`SectionHeader`: eyebrow → serif title → divider → note); hairline-framed
   cards with hover lift; terracotta primary CTAs, espresso-outline secondary.
-- **Logo/background match:** the raster logos carry a baked cream card
-  (`#f8e9da`); `$color-cream` (the page + header ground) is set to that exact
-  value so the wordmark reads seamless. The header stays **opaque** cream for
-  this reason — don't make it translucent.
+- **Logo:** SVG brand marks in `public/logo/`, rendered via `ui/Logo` —
+  `wordmark` (typemark, header) and `badge` (full lockup, ivory-inked
+  `full-inverse.svg` for the espresso footer). The marks are fixed two-tone
+  (espresso #44240d + ochre #ba731b) — use the inverse variant on dark
+  surfaces. Favicon is `logo/favicon.svg` + PNG fallbacks (see CLAUDE.md);
+  JSON-LD `Organization.logo` is `logo/favicon-512.png`.

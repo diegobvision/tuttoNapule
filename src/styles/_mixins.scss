@@ -95,7 +95,11 @@
   @include btn-base;
   background: $accent;
   color: $text-on-accent;
-  &:hover { background: $color-terracotta-2; box-shadow: $shadow-md; }
+  &:hover {
+    background: $color-terracotta-2;
+    box-shadow: $shadow-md;
+    transform: translateY(-1px);
+  }
 }
 
 // Secondary — espresso outline
@@ -112,7 +116,11 @@
   @include btn-base;
   background: $color-ochre;
   color: $color-espresso;
-  &:hover { background: $color-ochre-soft; box-shadow: $shadow-md; }
+  &:hover {
+    background: $color-ochre-soft;
+    box-shadow: $shadow-md;
+    transform: translateY(-1px);
+  }
 }
 
 // Ghost on dark surfaces (footer, dark hero scrim)
@@ -120,8 +128,8 @@
   @include btn-base;
   background: transparent;
   color: $text-on-dark;
-  border-color: rgba(#f4ebd8, 0.4);
-  &:hover { border-color: $text-on-dark; background: rgba(#f4ebd8, 0.08); }
+  border-color: rgba($text-on-dark, 0.4);
+  &:hover { border-color: $text-on-dark; background: rgba($text-on-dark, 0.08); }
 }
 
 // --- Cards ---------------------------------------------------------------
