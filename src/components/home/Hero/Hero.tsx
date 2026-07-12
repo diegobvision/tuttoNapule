@@ -1,14 +1,14 @@
-import Image from "next/image";
-import styles from "./Hero.module.scss";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { DiamondStar } from "@/components/ui/Ornament/Ornament";
+import Image from "next/image";
+import styles from "./Hero.module.scss";
 
 export function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.media}>
         <Image
-          src="/images/hero-naples-bay.jpg"
+          src="/images/hero-naples-bay-2.png"
           alt="The Bay of Naples at sunset, with Vesuvius on the horizon"
           fill
           priority
@@ -24,7 +24,8 @@ export function Hero() {
           Cucina · Casa · Ricette
         </p>
         <h1 id="hero-title" className={styles.title}>
-          A little taste of Naples,<br /> delivered to your door
+          A little taste of Naples,
+          <br /> delivered to your door
         </h1>
         <p className={styles.lead}>
           Authentic Neapolitan and Italian coffee, pasta, pantry treasures and
@@ -35,7 +36,10 @@ export function Hero() {
             href="/collections"
             className={styles.primary}
             event="hero_cta_click"
-            eventParams={{ cta_label: "Shop the pantry", destination: "/collections" }}
+            eventParams={{
+              cta_label: "Shop the pantry",
+              destination: "/collections",
+            }}
           >
             Shop the pantry
           </TrackedLink>
@@ -43,7 +47,10 @@ export function Hero() {
             href="/blog"
             className={styles.secondary}
             event="hero_cta_click"
-            eventParams={{ cta_label: "Read the Journal", destination: "/blog" }}
+            eventParams={{
+              cta_label: "Read the Journal",
+              destination: "/blog",
+            }}
           >
             Read the Journal
           </TrackedLink>
