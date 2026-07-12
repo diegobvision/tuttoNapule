@@ -25,18 +25,18 @@
   flex-direction: column;
   gap: $space-4;
   align-items: flex-start;
+  max-width: 180px;
 }
 
 .tagline {
   color: rgba($text-on-dark, 0.72);
   font-family: $font-serif;
-  font-size: $fs-lead;
+  font-size: $fs-small;
   line-height: $lh-normal;
-  max-width: 34ch;
   em { color: $color-ochre-soft; font-style: italic; }
 }
 
-.social { display: flex; gap: $space-3; }
+.social { display: flex; gap: $space-3; align-self: center; }
 
 .socialLink {
   display: grid;
